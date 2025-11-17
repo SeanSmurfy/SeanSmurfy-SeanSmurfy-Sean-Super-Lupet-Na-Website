@@ -7,7 +7,7 @@
     
     <link rel="stylesheet" href="style/style.css">
     
-    <link rel="stylesheet" href="httpshttps://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
@@ -15,7 +15,9 @@
     <nav class="page-nav">
         <div class="container">
             <div class="nav-left">
-                <a href="index.html" class="site-logo">Q-See</a>
+                <a href="index.html" class="site-logo">
+                    <img src="images/Q-See LOGO (NO BG).png" alt="Q-See Logo" class="site-logo-img">
+                </a>
             </div>
             <div class="nav-right">
                 <a href="index.html" class="nav-link">Back to Home</a>
@@ -31,7 +33,7 @@
         
         <div class="creators-gallery">
             
-            <article class="creator-card">
+                <article class="creator-card" data-creator-id="sean">
                     <div class="creator-image">
                         <img src="images/sean.png" alt="Sean Reignorr Mendoza" onerror="this.src='https://placehold.co/120x120/2d3748/ffffff?text=Sean';">
                     </div>
@@ -41,7 +43,7 @@
                     </div>
                 </article>
 
-                <article class="creator-card">
+                <article class="creator-card" data-creator-id="walter">
                     <div class="creator-image">
                         <img src="images/walter.png" alt="Walter Nuñez" onerror="this.src='https://placehold.co/120x120/2d3748/ffffff?text=Walter';">
                     </div>
@@ -51,7 +53,7 @@
                     </div>
                 </article>
 
-                <article class="creator-card">
+                <article class="creator-card" data-creator-id="jeremy">
                     <div class="creator-image">
                         <img src="images/jeremy.png" alt="Jeremy Nolial" onerror="this.src='https://placehold.co/120x120/2d3748/ffffff?text=Jeremy';">
                     </div>
@@ -72,5 +74,38 @@
         </div>
     </footer>
     
+    <!-- ====================================================== -->
+    <!-- ==           NEW: CREATOR POP-UP MODAL              == -->
+    <!-- ====================================================== -->
+    <div id="creator-modal-overlay">
+        <div id="creator-modal-content">
+            
+            <div id="creator-modal-header">
+                <div id="creator-modal-img-wrapper">
+                    <img id="creator-modal-img" src="images/sean.png" alt="Creator Image">
+                </div>
+                <h2 id="creator-modal-name">Sean Reignorr Mendoza</h2>
+                <p id="creator-modal-role">Project Lead & Developer</p>
+            </div>
+            
+            <div id="creator-modal-body">
+                <p id="creator-modal-desc">Short description goes here...</p>
+                
+                <h3>Contact & Links</h3>
+                <ul id="creator-modal-contact-list">
+                    <!-- JS will build this -->
+                </ul>
+                <div id="creator-modal-socials">
+                    <!-- JS will build this -->
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <!-- ====================================================== -->
+    <!-- ==         END OF CREATOR POP-UP MODAL            == -->
+    <!-- ====================================================== -->
+
+    <script src="scripts/script.js"></script>
 </body>
 </html>
