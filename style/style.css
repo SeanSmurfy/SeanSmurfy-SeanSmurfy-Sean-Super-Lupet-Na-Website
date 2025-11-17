@@ -1,19 +1,19 @@
 /* --- Global Styles & Variables --- */
 :root {
-    --primary-color: #38a169; /* Green from "PLAN YOUR TRIP" button */
-    --secondary-color: #a0aec0; /* Lighter gray for nav links */
-    --star-color: #ffc107; /* Yellow-gold from reference */
+    --primary-color: #38a169;
+    --secondary-color: #a0aec0;
+    --star-color: #ffc107;
     
     /* Dark Mode Palette */
-    --dark-bg-color: #1a202c; /* Main background */
-    --card-bg-color: #2d3748; /* Slightly lighter card background */
+    --dark-bg-color: #1a202c;
+    --card-bg-color: #2d3748;
     --light-text-color: #ffffff;
-    --dark-text-color: #1a202c; /* Darker text for body */
-    --gray-bg-color: #f7fafc; /* Light gray for sections */
+    --dark-text-color: #1a202c;
+    --gray-bg-color: #f7fafc;
     
     --border-radius-sm: 5px;
     --border-radius-md: 8px;
-    --box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); /* Darker shadow */
+    --box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
 }
 
 /* --- NEW FONT: "Poppins" --- */
@@ -29,19 +29,18 @@ body {
     /* --- NEW FONT FAMILY --- */
     font-family: 'Poppins', Arial, sans-serif;
     line-height: 1.6;
-    color: var(--light-text-color); /* Light text for dark mode */
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    color: var(--light-text-color);
+    overflow-x: hidden;
 
     /* Parallax Background */
     background-image: url('../images/bodyparallax.png');
-    background-attachment: fixed; /* This makes it stationary */
+    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: var(--dark-bg-color); /* Fallback color */
+    background-color: var(--dark-bg-color);
 }
 
-/* This darkens the parallax, makes text more readable */
 body::before {
     content: '';
     position: fixed;
@@ -53,7 +52,6 @@ body::before {
     z-index: -1;
 }
 
-/* This class stops the body from scrolling when the modal is open */
 body.modal-active {
     overflow: hidden;
 }
@@ -66,7 +64,7 @@ body.modal-active {
 
 h1, h2, h3 {
     line-height: 1.2;
-    font-weight: 700; /* 700 is 'bold' for Poppins */
+    font-weight: 700;
 }
 
 img {
@@ -76,14 +74,18 @@ img {
 
 /* --- Navigation --- */
 .main-nav {
-    background: var(--dark-bg-color); /* Solid dark background */
+    /* --- UPDATED: Semi-transparent background --- */
+    background: rgba(26, 32, 44, 0.7);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
     padding: 0.8rem 0;
-    position: absolute; /* Position over the hero video */
+    position: absolute;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 100;
-    box-shadow: var(--box-shadow); /* Subtle shadow */
+    box-shadow: var(--box-shadow);
 }
 
 .main-nav .container {
@@ -97,19 +99,30 @@ img {
     align-items: center;
 }
 
+/* --- LOGO IMAGE STYLING --- */
+.site-logo-img {
+    height: 90px; /* === FIXED AS REQUESTED === */
+    width: auto;
+    filter: invert(100%);
+    transition: filter 0.3s ease;
+}
+
+.site-logo-img:hover {
+    filter: invert(100%) brightness(1.2);
+}
+/* --- END: Logo Image Styling --- */
+
 .site-logo {
-    font-size: 1.5rem; 
-    font-weight: 900; /* 900 is 'black' for Poppins */
-    color: var(--light-text-color); 
     text-decoration: none;
-    letter-spacing: 0.5px;
     margin-right: 2rem;
+    display: flex;
+    align-items: center;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    margin: 0; /* Override default margin */
+    margin: 0;
 }
 
 .nav-links li {
@@ -118,8 +131,8 @@ img {
 
 .nav-links a {
     text-decoration: none;
-    color: var(--secondary-color); /* Lighter gray for links */
-    font-weight: 400; /* 400 is 'regular' for Poppins */
+    color: var(--secondary-color);
+    font-weight: 400;
     font-size: 0.95rem;
     transition: color 0.3s ease;
 }
@@ -128,21 +141,20 @@ img {
     color: var(--light-text-color);
 }
 
-/* Style for the "Creators" and "Back to Home" links (Button Style) */
 .nav-right .nav-link {
     background: var(--light-text-color);
     color: var(--dark-text-color);
     text-decoration: none;
     font-size: 0.95rem;
-    font-weight: 600; /* 600 is 'semi-bold' for Poppins */
+    font-weight: 600;
     padding: 0.5rem 1rem;
     border-radius: var(--border-radius-sm);
     margin-right: 1.5rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.3); /* 3D effect */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
     transition: all 0.2s ease;
 }
 .nav-right .nav-link:hover {
-    color: var(--dark-text-color); /* Ensure text color stays dark */
+    color: var(--dark-text-color);
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
@@ -161,7 +173,6 @@ img {
     color: var(--light-text-color);
 }
 
-/* Simple nav for creators.html */
 .page-nav {
     background: var(--dark-bg-color);
     padding: 1rem 0;
@@ -172,21 +183,19 @@ img {
     justify-content: space-between;
     align-items: center;
 }
-/* Removed conflicting .page-nav .nav-link styles */
 
 
 /* --- Hero Section with Video Background --- */
 .hero-section {
     position: relative;
     width: 100%;
-    height: 90vh; /* Takes up most of the viewport height */
+    height: 90vh;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: var(--light-text-color);
-    /* White line divider */
     border-bottom: 2px solid var(--light-text-color);
 }
 
@@ -198,98 +207,114 @@ img {
     height: 100%;
     object-fit: cover;
     transform: translate(-50%, -50%);
-    z-index: -1; /* Puts video behind content */
+    z-index: -1;
 }
 
-.hero-section::before { /* Dark overlay for better text readability */
+.hero-section::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4); /* Darker overlay */
+    background: rgba(0, 0, 0, 0.4);
     z-index: 0;
 }
 
 .hero-content {
     position: relative;
-    z-index: 1; /* Ensures content is above overlay */
+    z-index: 1;
 }
 
 .hero-content h1 {
-    font-size: 8rem; /* Larger, more impactful text */
-    font-weight: 900; /* Ultra bold */
+    font-size: 8rem;
+    font-weight: 900;
     margin-bottom: 0.5rem;
     
-    /* --- NEW 'Shine' Effect --- */
-    /* 1. Create a gradient of white and yellow */
     background: linear-gradient(
         90deg, 
         var(--star-color), 
         var(--light-text-color), 
         var(--star-color)
     );
-    /* 2. Make the background 200% wide so we can move it */
     background-size: 200% auto;
     
-    /* 3. Clip the background to the text */
     background-clip: text;
-    -webkit-background-clip: text; /* Safari/Chrome prefix */
+    -webkit-background-clip: text;
     
-    /* 4. Make the text color transparent to show the gradient */
     color: transparent;
     
-    /* 5. Add the animation */
     animation: shine-animation 4s linear infinite;
 
-    /* 6. Use a drop-shadow for a better "glow" than text-shadow */
-    text-shadow: none; /* Remove old shadow */
+    text-shadow: none;
     filter: drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.7));
 }
+
+.video-control-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--light-text-color);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+}
+
+.video-control-btn:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+    border-color: var(--light-text-color);
+}
+
 
 /* --- Featured Spots Section --- */
 .featured-spots {
     padding: 4rem 0;
-    background: transparent; /* Make section transparent to see parallax */
+    background: transparent;
 }
 
 .section-title {
     font-size: 2.5rem;
     text-align: center;
-    margin-bottom: 3rem; /* More space below title */
+    margin-bottom: 3rem;
     color: var(--light-text-color);
     position: relative;
-    font-weight: 900; /* Bolder title */
-    text-transform: uppercase; /* ALL CAPS */
+    font-weight: 900;
+    text-transform: uppercase;
 }
 
-/* Yellow line under title */
 .section-title::after {
     content: '';
     position: absolute;
-    bottom: -15px; /* Position line below text */
-    left: 50%; /* Center the line */
+    bottom: -15px;
+    left: 50%;
     transform: translateX(-50%);
-    width: 80px; /* Width of the line */
+    width: 80px;
     height: 4px;
     background-color: var(--star-color); 
     border-radius: 2px;
 }
 
-/* Style for the subtitle on the creators page */
 .section-subtitle {
     font-size: 1.1rem;
     color: var(--secondary-color);
-    max-width: 600px; /* Constrains the width */
+    max-width: 600px;
     
-    /* These three lines will force it to center */
-    text-align: center; /* Centers the text inside the block */
-    margin-left: auto;   /* Centers the block itself */
-    margin-right: auto;  /* Centers the block itself */
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 
-    margin-top: -1.5rem; /* Pulls it up a bit */
-    margin-bottom: 3rem; /* Pushes gallery down */
+    margin-top: -1.5rem;
+    margin-bottom: 3rem;
 }
 
 .spots-gallery {
@@ -300,29 +325,27 @@ img {
 
 /* --- Spot Card --- */
 .spot-card {
-    background: var(--card-bg-color); /* Dark card background */
-    border-radius: var(--border-radius-md); /* Slightly larger radius */
-    box-shadow: var(--box-shadow); /* Darker shadow */
+    background: var(--card-bg-color);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow);
     overflow: hidden;
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    border: 1px solid transparent; /* For hover effect */
-    cursor: pointer; /* NEW: Show it's clickable */
+    border: 1px solid transparent;
+    cursor: pointer;
 }
 
-/* --- UPDATED HOVER STYLE --- */
 .spot-card:hover {
-    transform: translateY(-5px) scale(1.03); /* Lifts up AND enlarges */
+    transform: translateY(-5px) scale(1.03);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
-    border-color: var(--star-color); /* Yellow border "glow" on hover */
+    border-color: var(--star-color);
 }
 
-/* Card Image */
 .card-image {
     position: relative;
     width: 100%;
-    height: 200px; /* Slightly shorter image height */
+    height: 200px;
 }
 
 .card-image img {
@@ -331,31 +354,28 @@ img {
     object-fit: cover;
 }
 
-/* --- NEW: Card Image Overlay --- */
 .card-image-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
+    background-color: rgba(0, 0, 0, 0.7);
     color: var(--light-text-color);
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
     font-weight: 600;
-    opacity: 0; /* Hidden by default */
+    opacity: 0;
     transition: opacity 0.3s ease;
 }
 
 .spot-card:hover .card-image-overlay {
-    opacity: 1; /* Show on hover */
+    opacity: 1;
 }
-/* --- END: Card Image Overlay --- */
 
 
-/* Card Info */
 .spot-info {
     padding: 1.5rem;
     display: flex;
@@ -364,32 +384,30 @@ img {
 }
 
 .card-title {
-    font-size: 1.3rem; /* Slightly larger title */
+    font-size: 1.3rem;
     color: var(--light-text-color);
     margin-bottom: 0.75rem;
     font-weight: 700;
-    /* Divider line under title */
     padding-bottom: 0.75rem;
     border-bottom: 1px solid var(--secondary-color);
 }
 
 .card-description {
     font-size: 0.95rem;
-    color: var(--secondary-color); /* Softer gray for description */
+    color: var(--secondary-color);
     margin-bottom: 1.2rem;
     flex-grow: 1;
-    margin-top: 0.75rem; /* Add space above description now that stars are gone */
-    font-weight: 300; /* Lighter weight for Poppins */
+    margin-top: 0.75rem;
+    font-weight: 300;
 }
 
 /* --- Footer --- */
 .site-footer {
-    background: transparent; /* Make footer transparent */
+    background: transparent;
     color: var(--secondary-color);
     text-align: center;
     padding: 3rem 0;
     margin-top: 2rem;
-    /* Line above footer */
     border-top: 1px solid var(--secondary-color);
 }
 
@@ -399,7 +417,6 @@ img {
     opacity: 0.8;
 }
 
-/* Link in footer */
 .footer-link {
     color: var(--light-text-color);
     text-decoration: none;
@@ -432,20 +449,21 @@ img {
     padding: 2rem; 
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer; /* NEW: Make clickable */
 }
 
 .creator-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.03); /* NEW: Add hover effect */
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
 }
 
 .creator-image {
     width: 120px;
     height: 120px;
-    border-radius: 50%; /* Makes image circular */
+    border-radius: 50%;
     overflow: hidden;
     margin: 0 auto 1.5rem auto;
-    border: 3px solid var(--star-color); /* Yellow border */
+    border: 3px solid var(--star-color);
 }
 
 .creator-image img {
@@ -491,13 +509,12 @@ img {
 
     .nav-right {
         margin-top: 1rem;
-        /* Center the button and icon on mobile */
         justify-content: center;
         width: 100%;
     }
 
     .hero-content h1 {
-        font-size: 3.5rem; /* Smaller text on mobile */
+        font-size: 3.5rem;
     }
 
     .section-title {
@@ -517,28 +534,24 @@ img {
 /* ==           POP-UP MODAL STYLES                    == */
 /* ====================================================== */
 
-/* The dark background overlay */
 #spot-modal-overlay {
-    position: fixed; /* Stay in place even if page scrolls */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.85); /* Darker overlay */
-    z-index: 1000; /* On top of everything */
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
     
-    /* Center the modal content */
     display: flex;
     justify-content: center;
     align-items: center;
 
-    /* Animation: Fade in */
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-/* The modal content box */
 #spot-modal-content {
     background-color: var(--card-bg-color);
     color: var(--light-text-color);
@@ -546,27 +559,24 @@ img {
     border-radius: var(--border-radius-md);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     width: 90%;
-    max-width: 800px; /* Max width */
-    max-height: 90vh; /* Max height */
-    overflow-y: auto; /* Add scrollbar if content is too tall */
-    position: relative; /* For the close button */
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
     
-    /* Animation: Expand */
     transform: scale(0.9);
     transition: transform 0.3s ease;
 }
 
-/* This class is added by JavaScript to show the modal */
 #spot-modal-overlay.modal-open {
     opacity: 1;
     visibility: visible;
 }
 
 #spot-modal-overlay.modal-open #spot-modal-content {
-    transform: scale(1); /* Expand to full size */
+    transform: scale(1);
 }
 
-/* Modal Header (Image + Title) */
 #spot-modal-header {
     text-align: center;
     border-bottom: 1px solid var(--secondary-color);
@@ -576,7 +586,7 @@ img {
 
 #spot-modal-img {
     width: 100%;
-    height: 300px; /* Fixed height for modal image */
+    height: 300px;
     object-fit: cover;
     border-radius: var(--border-radius-sm);
     margin-bottom: 1.5rem;
@@ -588,7 +598,6 @@ img {
     color: var(--star-color);
 }
 
-/* Modal Body (Description + Details) */
 #spot-modal-body h3 {
     font-size: 1.5rem;
     color: var(--light-text-color);
@@ -625,25 +634,20 @@ img {
     font-weight: 600;
 }
 
-/* Style for nested lists like "Activity Tips" */
 #spot-modal-details-list ul {
     list-style: disc;
     padding-left: 2rem;
     margin-top: 0.5rem;
 }
 
-/* Modal Footer (Buttons) */
 #spot-modal-footer {
     text-align: center;
     margin-top: 2rem;
     padding-top: 1.5rem;
     border-top: 1px solid var(--secondary-color);
-.
 }
 
-/* --- UPDATED: Modal Button Style --- */
 .modal-button {
-    /* This style is now used by <button> and <a> */
     display: inline-block;
     background-color: var(--star-color);
     color: var(--dark-bg-color);
@@ -653,9 +657,9 @@ img {
     padding: 0.75rem 2rem;
     border-radius: var(--border-radius-sm);
     transition: all 0.2s ease;
-    border: none; /* For the <button> element */
-    cursor: pointer; /* For the <button> element */
-    font-family: 'Poppins', Arial, sans-serif; /* For the <button> element */
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', Arial, sans-serif;
 }
 
 .modal-button:hover {
@@ -666,24 +670,23 @@ img {
 }
 
 
-/* --- Custom Scrollbar for Modal (WebKit browsers) --- */
 #spot-modal-content::-webkit-scrollbar {
-    width: 10px; /* Width of the scrollbar */
+    width: 10px;
 }
 
 #spot-modal-content::-webkit-scrollbar-track {
-    background: var(--dark-bg-color); /* Background of the track */
+    background: var(--dark-bg-color);
     border-radius: 10px;
 }
 
 #spot-modal-content::-webkit-scrollbar-thumb {
-    background-color: var(--secondary-color); /* The color of the 'thumb' */
-    border-radius: 10px; /* Rounded corners */
-    border: 3px solid var(--dark-bg-color); /* Creates a "padding" effect */
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    border: 3px solid var(--dark-bg-color);
 }
 
 #spot-modal-content::-webkit-scrollbar-thumb:hover {
-    background-color: var(--light-text-color); /* Brighter on hover */
+    background-color: var(--light-text-color);
 }
 
 
@@ -692,15 +695,14 @@ img {
 /* ====================================================== */
 
 .search-container {
-    position: relative; /* For positioning the dropdown */
+    position: relative;
     display: flex;
     align-items: center;
 }
 
-/* The search box (input + results) */
 .search-box {
     position: absolute;
-    top: 150%; /* Position it below the nav icon */
+    top: 150%;
     right: 0;
     width: 300px;
     background-color: var(--dark-bg-color);
@@ -708,12 +710,11 @@ img {
     box-shadow: var(--box-shadow);
     border: 1px solid var(--secondary-color);
     
-    /* Animation */
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
     transition: all 0.2s ease-out;
-    z-index: 1100; /* On top of modal overlay */
+    z-index: 1100;
 }
 
 .search-box.active {
@@ -722,7 +723,6 @@ img {
     transform: translateY(0);
 }
 
-/* The text input field */
 #search-input {
     width: 100%;
     padding: 0.75rem 1rem;
@@ -733,7 +733,7 @@ img {
     border-bottom: 1px solid var(--secondary-color);
     border-top-left-radius: var(--border-radius-md);
     border-top-right-radius: var(--border-radius-md);
-    font-family: 'Poppins', Arial, sans-serif; /* Match the new font */
+    font-family: 'Poppins', Arial, sans-serif;
 }
 
 #search-input:focus {
@@ -741,14 +741,12 @@ img {
     border-bottom-color: var(--star-color);
 }
 
-/* The results dropdown area */
 #search-results {
-    display: none; /* Hidden until there are results */
+    display: none;
     max-height: 400px;
     overflow-y: auto;
 }
 
-/* A single result item */
 .search-result-item {
     display: block;
     padding: 0.75rem 1rem;
@@ -763,7 +761,6 @@ img {
     color: var(--star-color);
 }
 
-/* "No results" message */
 .search-no-results {
     display: block;
     padding: 0.75rem 1rem;
@@ -772,7 +769,6 @@ img {
     font-weight: 300;
 }
 
-/* Custom scrollbar for search results */
 #search-results::-webkit-scrollbar {
     width: 8px;
 }
@@ -785,24 +781,21 @@ img {
 }
 
 /* ====================================================== */
-/* ==       NEW: RESPONSIVE MAP & BUTTON STYLES        == */
+/* ==       RESPONSIVE MAP & BUTTON STYLES             == */
 /* ====================================================== */
 
-/* This is the wrapper for the map AND the "View" button */
 #spot-modal-map-wrapper {
-    margin-top: 1.5rem; /* Space above the map */
+    margin-top: 1.5rem;
 }
 
-/* This is the container FOR the responsive iframe */
 #spot-modal-map-embed {
     position: relative;
     height: 0;
     overflow: hidden;
-    padding-bottom: 75%; /* 4:3 Aspect Ratio (e.g., 450 / 600 = 0.75) */
-    border-radius: var(--border-radius-sm); /* Rounded corners */
+    padding-bottom: 75%;
+    border-radius: var(--border-radius-sm);
 }
 
-/* This targets the iframe inside our container */
 #spot-modal-map-embed iframe {
     position: absolute;
     top: 0;
@@ -812,16 +805,187 @@ img {
     border: 0;
 }
 
-/* This is the new "View on Google Maps" button */
 .gmap-button {
-    background-color: var(--card-bg-color); /* Darker "secondary" button */
+    background-color: var(--card-bg-color);
     color: var(--light-text-color);
     border: 1px solid var(--secondary-color);
-    margin-top: 1rem; /* Space between map and this button */
+    margin-top: 1rem;
 }
 
 .gmap-button:hover {
     background-color: var(--secondary-color);
     color: var(--dark-bg-color);
     border-color: var(--secondary-color);
+}
+
+/* ====================================================== */
+/* ==           NEW: CREATOR MODAL STYLES              == */
+/* ====================================================== */
+
+#creator-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#creator-modal-content {
+    background-color: var(--card-bg-color);
+    color: var(--light-text-color);
+    padding: 0;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    max-width: 500px; /* Smaller modal for creators */
+    max-height: 90vh;
+    overflow: hidden; /* No scrollbar on main box */
+    position: relative;
+    
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+#creator-modal-overlay.modal-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+#creator-modal-overlay.modal-open #creator-modal-content {
+    transform: scale(1);
+}
+
+#creator-modal-header {
+    text-align: center;
+    padding: 2rem 2rem 1.5rem 2rem;
+    border-bottom: 1px solid var(--secondary-color);
+    position: relative;
+}
+
+#creator-modal-img-wrapper {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 1.5rem auto;
+    border: 4px solid var(--star-color);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+#creator-modal-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#creator-modal-name {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--light-text-color);
+}
+
+#creator-modal-role {
+    font-size: 1.1rem;
+    color: var(--star-color);
+    font-weight: 600;
+}
+
+#creator-modal-body {
+    padding: 1.5rem 2rem 2rem 2rem;
+    max-height: 50vh;
+    overflow-y: auto;
+}
+
+#creator-modal-body h3 {
+    display: none; /* Hide the "Contact & Links" title */
+}
+
+#creator-modal-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--secondary-color);
+    font-weight: 300;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* --- REMOVED OLD STYLES --- */
+/* The #creator-modal-contact-list styles have been removed */
+
+
+#creator-modal-socials {
+    text-align: center;
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+/* --- REPLACED .social-link with .creator-social-button --- */
+.creator-social-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px; /* Medium-sized button */
+    height: 50px; /* Medium-sized button */
+    font-size: 1.5rem; /* Medium-sized icon */
+    text-decoration: none;
+    color: var(--light-text-color);
+    background-color: var(--dark-bg-color); /* Dark inner button */
+    border: 2px solid var(--secondary-color); /* Gray border */
+    border-radius: 50%; /* Make it circular */
+    transition: all 0.3s ease;
+}
+
+.creator-social-button:hover {
+    transform: scale(1.1) translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Specific hover colors */
+.creator-social-button.facebook:hover {
+    background-color: #1877F2; /* Facebook Blue */
+    border-color: #1877F2;
+}
+
+.creator-social-button.gmail:hover {
+    background-color: #D44638; /* Gmail Red */
+    border-color: #D44638;
+}
+
+.creator-social-button.phone:hover {
+    background-color: var(--primary-color); /* Site's Green */
+    border-color: var(--primary-color);
+}
+
+
+/* Custom scrollbar for creator modal */
+#creator-modal-body::-webkit-scrollbar {
+    width: 10px;
+}
+
+#creator-modal-body::-webkit-scrollbar-track {
+    background: var(--dark-bg-color);
+    border-radius: 10px;
+}
+
+#creator-modal-body::-webkit-scrollbar-thumb {
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    border: 3px solid var(--dark-bg-color);
+}
+
+#creator-modal-body::-webkit-scrollbar-thumb:hover {
+    background-color: var(--light-text-color);
 }
